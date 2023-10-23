@@ -24,9 +24,19 @@ public class userController {
 
     }
 
-    @PostMapping("/metodoComBody")
+   @PostMapping("/metodoBody")
     public String metodoComBodyParams(@RequestBody Usuario usuario){
         return "metodoComBody " + usuario.username();
+    }
+
+        @PostMapping("/metodoHeader")
+    public String metodoComHeader(@RequestHeader("name") String name){
+        return "metodoHeader " + name;
+    }
+
+    @PostMapping("/metodoComListHeader")
+    public String metodoComHeader(@RequestHeader Map<String, String> headers){
+        return "metodoHeader " + headers.entrySet();
     }
 
     record Usuario(String username){
