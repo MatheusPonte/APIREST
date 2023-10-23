@@ -1,6 +1,7 @@
 package br.com.matheusponte.main.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -8,8 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/login") // Rota
 public class userController {
 
-    @GetMapping("/users")
-    public String primeiroMetodo(){
-        return "Meu primeiro metodo api rest";
+    @GetMapping("/users/{id}")
+    public String primeiroMetodo(@PathVariable String id){ // metodo junto com parametro
+        return "o parametro é " + id;
     }
 }
